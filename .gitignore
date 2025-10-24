@@ -2,6 +2,8 @@
 # These files contain your personal information and should not be committed to git
 config.js
 deploy.sh
+.cleanup-backlog.md
+server-setup.sh
 
 # macOS
 .DS_Store

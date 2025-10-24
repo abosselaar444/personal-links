@@ -15,7 +15,7 @@ This guide shows how to deploy YOUR personal landing page (with your config.js) 
 Make sure your `config.js` is configured with your personal information:
 
 ```bash
-cd /Users/melindapriewe/AB_Python_Projects/personal-links
+cd ~/personal-links  # Navigate to your project directory
 
 # Verify your config.js exists and is complete
 ls -la config.js
@@ -43,12 +43,12 @@ From your **local machine**, upload the files:
 
 ```bash
 # Option A: Using SCP
-scp /Users/melindapriewe/AB_Python_Projects/personal-links/index.html user@your-server:/var/www/personal-links/
-scp /Users/melindapriewe/AB_Python_Projects/personal-links/config.js user@your-server:/var/www/personal-links/
+scp ~/personal-links/index.html user@your-server:/var/www/personal-links/
+scp ~/personal-links/config.js user@your-server:/var/www/personal-links/
 
 # Option B: Using rsync (better for updates)
 rsync -avz --exclude='.git' --exclude='README.md' --exclude='example-config.js' --exclude='DEPLOYMENT.md' \
-  /Users/melindapriewe/AB_Python_Projects/personal-links/ \
+  ~/personal-links/ \
   user@your-server:/var/www/personal-links/
 
 # Option C: Clone repo and add config manually
@@ -245,7 +245,7 @@ When you make changes to your config or want to update:
 ```bash
 # From your local machine
 rsync -avz --exclude='.git' --exclude='README.md' --exclude='example-config.js' \
-  /Users/melindapriewe/AB_Python_Projects/personal-links/ \
+  ~/personal-links/ \
   user@your-server:/var/www/personal-links/
 
 # No server restart needed - just refresh your browser!
