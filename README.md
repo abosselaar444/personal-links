@@ -5,14 +5,14 @@ A stunning, customizable personal landing page template that's a beautiful alter
 ![Version](https://img.shields.io/badge/version-2.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-**🎨 [Live Demo](https://yoursite.com)** | **📖 [Documentation](#customization-guide)**
+**📖 [Documentation](#customization-guide)**
 
 ## ⚡ Quick Setup (5 Minutes)
 
 1. **Clone or download this repository**
    ```bash
-   git clone https://github.com/yourusername/personal-links.git
-   cd personal-links
+   git clone https://github.com/yourusername/dynamic-portfolio-template.git
+   cd dynamic-portfolio-template
    ```
 
 2. **Create your config file**
@@ -66,7 +66,7 @@ A stunning, customizable personal landing page template that's a beautiful alter
 1. Fork this repository
 2. Go to repository Settings → Pages
 3. Select "Deploy from branch" and choose `main` branch
-4. Your site will be live at `https://yourusername.github.io/personal-links/`
+4. Your site will be live at `https://yourusername.github.io/dynamic-portfolio-template/`
 
 ### Option 3: Deploy to Netlify
 1. Visit [Netlify Drop](https://app.netlify.com/drop)
@@ -198,7 +198,7 @@ features: {
 ## 📁 Project Structure
 
 ```
-personal-links/
+dynamic-portfolio-template/
 ├── index.html              # Main page (don't edit - it's the template)
 ├── config.js              # YOUR personal config (gitignored ✓)
 ├── example-config.js      # Template config file
