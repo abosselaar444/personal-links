@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Arjan Bosselaar - Data Analyst, Software Developer & Homelab Enthusiast">
+    <meta name="description" content="Arjan Bosselaar - Data & ML Engineer specializing in machine learning pipelines, Python development, and cloud infrastructure">
     <meta name="author" content="Arjan Bosselaar">
-    <title>Arjan Bosselaar | Data Analyst & Developer</title>
+    <title>Arjan Bosselaar | Data & ML Engineer</title>
 
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
@@ -376,6 +376,46 @@
             padding: 1.5rem;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hover-tooltip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.25);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+        }
+
+        .project-card:hover .project-hover-tooltip {
+            opacity: 1;
+        }
+
+        .project-hover-tooltip i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .project-hover-tooltip span {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .project-card:hover {
@@ -799,6 +839,30 @@
             transform: scale(1.08);
         }
 
+        body[data-theme="professional"] .project-hover-tooltip {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            backdrop-filter: none;
+            border: none;
+            top: auto;
+            bottom: 0;
+            height: auto;
+            padding: 1rem;
+            flex-direction: row;
+            gap: 0.8rem;
+            border-radius: 0 0 15px 15px;
+        }
+
+        body[data-theme="professional"] .project-hover-tooltip i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        body[data-theme="professional"] .project-hover-tooltip span {
+            color: white;
+            font-size: 1rem;
+            text-shadow: none;
+        }
+
         body[data-theme="professional"] .section-title {
             color: var(--primary);
             background: none;
@@ -1037,17 +1101,33 @@
                     const projectCard = document.createElement('div');
                     projectCard.className = 'project-card';
 
+                    // Determine tooltip content
+                    let tooltipContent;
+                    if (project.link) {
+                        tooltipContent = `
+                            <i class="fab fa-github"></i>
+                            <span>View Build</span>
+                        `;
+                    } else {
+                        tooltipContent = `<span>Coming Soon</span>`;
+                    }
+
                     if (project.link) {
                         projectCard.style.cursor = 'pointer';
                         projectCard.addEventListener('click', () => {
                             window.open(project.link, '_blank');
                         });
+                    } else {
+                        projectCard.style.cursor = 'default';
                     }
 
                     projectCard.innerHTML = `
                         <div class="project-icon">${project.icon}</div>
                         <h3 class="project-title">${project.title}</h3>
                         <p class="project-description">${project.description}</p>
+                        <div class="project-hover-tooltip">
+                            ${tooltipContent}
+                        </div>
                     `;
                     projectsGrid.appendChild(projectCard);
                 });
